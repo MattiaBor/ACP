@@ -1,0 +1,9 @@
+------------ [Select type bw] ------------
+/user/file_24.doc-bw
+/user/file_90.doc-bw
+/user/file_99.txt-bw
+------------ [Select type bw] ------------
+/user/file_15.txt-bw
+/user/file_78.doc-bw
+/user/file_54.doc-bw
+/user/file_69.txt-bw
