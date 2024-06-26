@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package qualsiasi;
+
+service Service{
+    rpc Servizio1(Msg1) returns (Msg2);
+    rpc Servizio2(Msg2) returns (Msg1);
+}
+
+message Msg1{
+    int64 id = 1;
+    string msg = 2;
+}
+
+message Msg2{
+    string msg = 1;
+}
