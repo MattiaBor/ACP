@@ -3,12 +3,12 @@ import socket,sys
 
 class Skeleton(IService):
 
-    def __init__(self,port):
+    def __init__(self,port, impl):
         self.port = port
-        self.impl = ServerImpl()
+        self.impl = impl
 
     def Service(self, msg):
-        pass
+        return self.impl.Service(msg)
 
     def runSkeleton(self):
         sk=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -18,7 +18,7 @@ class Skeleton(IService):
         while True:
             c,_=sk.accept()
             data=c.recv()
-            self.impl.Service(data.decode())
+            self.Service(data.decode())
             c.close()
 
         sk.close()
@@ -34,7 +34,9 @@ if __name__ == "__main__":
     except IndexError:
         print("Specify port ...")
 
-    Skel = Skeleton(PORT)
+    obj = ServerImpl()
+    
+    Skel = Skeleton(PORT, obj)
     Skel.runSkeleton()
 
     
